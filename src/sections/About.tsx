@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '../components/GlassCard';
-import { Briefcase, GraduationCap, MapPin, Download } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, ArrowRight } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -35,11 +35,10 @@ const About: React.FC = () => {
               </div>
             </div>
             <a 
-              href="/Resume.pdf" 
-              download="Shaik_Firdos_Resume.pdf"
+              href="#footer" 
               className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
             >
-              Download Full Resume <Download size={20} />
+              Get in Touch <ArrowRight size={20} />
             </a>
           </div>
         </motion.div>
