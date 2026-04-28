@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, BrainCircuit } from 'lucide-react';
+import { ArrowRight, Sparkles, BrainCircuit, Download } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -36,10 +36,14 @@ const Hero: React.FC = () => {
             View Projects
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="px-8 py-4 glass text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-white/10 transition-all border border-white/10">
-            <BrainCircuit size={20} />
-            ML Expertise
-          </button>
+          <a 
+            href="/Resume.pdf" 
+            download="Shaik_Firdos_Resume.pdf"
+            className="px-8 py-4 glass text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-white/10 transition-all border border-white/10"
+          >
+            <Download size={20} />
+            Download Resume
+          </a>
         </div>
       </motion.div>
 
