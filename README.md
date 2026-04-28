@@ -56,7 +56,7 @@ npm run build
 ## 📂 Project Structure
 - `src/components`: Reusable UI components (GlassCard, DataStream, Navbar, etc.)
 - `src/sections`: Main page sections (Hero, About, Skills, Projects)
-- `public/`: Static assets and brand resources
+- `public/`: Static assets including the official Resume.pdf
 
 ## 📧 Connect with Me
 - **GitHub**: [SHAIK-FIRDOS-01](https://github.com/SHAIK-FIRDOS-01)
