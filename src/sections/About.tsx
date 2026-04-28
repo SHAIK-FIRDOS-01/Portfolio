@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '../components/GlassCard';
-import { Briefcase, GraduationCap, MapPin, ArrowRight, Download } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, Download } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
