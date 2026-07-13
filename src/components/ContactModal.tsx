@@ -26,7 +26,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         },
         body: JSON.stringify({
           email: formData.get('email'),
-          subject: formData.get('subject'),
+          name: formData.get('name'),
           message: formData.get('message')
         })
       });
@@ -129,10 +129,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             <div className="flex items-center border-b border-[#27272a] px-4 py-2">
               <input 
                 type="text" 
-                name="subject"
+                name="name"
                 required
                 className="flex-1 bg-transparent border-none outline-none text-white text-sm placeholder-[#3f3f46] font-medium"
-                placeholder="Subject"
+                placeholder="Your Name"
               />
             </div>
 
