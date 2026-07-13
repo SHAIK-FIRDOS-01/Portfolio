@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 
 export default function useMagnetic(magnetic: React.RefObject<HTMLElement | null>) {
