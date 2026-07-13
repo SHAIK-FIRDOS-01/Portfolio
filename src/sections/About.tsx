@@ -15,7 +15,7 @@ const About: React.FC = () => {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-auto md:auto-rows-[200px]">
         {/* Main Bio - spanning 2 cols, 2 rows */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
