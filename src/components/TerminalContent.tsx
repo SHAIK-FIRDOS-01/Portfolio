@@ -93,7 +93,7 @@ const TerminalContent: React.FC = () => {
 
   return (
     <div 
-      className="w-[500px] h-[340px] bg-black/40 border border-white/20 rounded-2xl overflow-hidden shadow-2xl flex flex-col cursor-text"
+      className="w-full max-w-[500px] h-[340px] bg-black/40 border border-white/20 rounded-2xl overflow-hidden shadow-2xl flex flex-col cursor-text"
       onClick={() => inputRef.current?.focus()}
     >
       {/* Top Bar */}
