@@ -20,7 +20,7 @@ const Typewriter: React.FC<TypewriterProps> = ({
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof window.setTimeout>;
 
     const currentWord = words[currentWordIndex];
 

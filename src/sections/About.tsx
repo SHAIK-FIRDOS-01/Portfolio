@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, MapPin, BookOpen, Star, User, Coffee } from 'lucide-react';
+import { GraduationCap, BookOpen, User } from 'lucide-react';
 
 const About: React.FC = () => {
   return (

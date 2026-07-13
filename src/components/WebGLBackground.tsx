@@ -26,7 +26,7 @@ const ParticleSystem = () => {
   const ref = useRef<THREE.Points>(null);
   const sphere = useMemo(() => randomInSphere(5000, 1.5), []);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (ref.current) {
       ref.current.rotation.x -= delta / 15;
       ref.current.rotation.y -= delta / 20;
