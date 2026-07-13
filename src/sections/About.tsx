@@ -1,84 +1,85 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import GlassCard from '../components/GlassCard';
-import { Briefcase, GraduationCap, MapPin, Download } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, BookOpen, Star, User, Coffee } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+    <section id="about" className="py-24 px-6 max-w-7xl mx-auto relative z-10 border-b border-[#27272a]/50 bg-transparent">
+      
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#27272a] bg-[#0a0a0a] text-[#a1a1aa] text-xs font-medium tracking-wide mb-6">
+          System Architecture
+        </div>
+        <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4">
+          The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#71717a]">Blueprint.</span>
+        </h2>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+        {/* Main Bio - spanning 2 cols, 2 rows */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between group overflow-hidden bg-transparent border border-white/20 rounded-3xl"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-8">Bridging <span className="text-gradient">Logic & Creativity.</span></h2>
-          <div className="space-y-6 text-text-muted text-lg leading-relaxed">
-            <p>
-              I am a <span className="text-white font-bold">Machine Learning Engineer</span> with a deep passion for building AI-native infrastructure. 
-              My work focuses on RAG (Retrieval-Augmented Generation) orchestration, where I build the pipes that connect LLMs to real-world data securely.
-            </p>
-            <p>
-              I believe in "Rapid Product Shipping" without compromising on system resilience. 
-              Whether it's optimizing $O(N^2)$ scaling bottlenecks or hardening JWT authentication systems, 
-              I own the entire lifecycle from research to production-ready code.
-            </p>
-            <div className="flex items-center gap-4 text-white font-medium py-4">
-              <div className="flex items-center gap-2 px-4 py-2 glass rounded-full text-sm">
-                <MapPin size={16} className="text-primary" />
-                India
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 glass rounded-full text-sm">
-                <Briefcase size={16} className="text-secondary" />
-                Available for Hire
-              </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative z-10">
+            <div className="w-12 h-12 bg-white/5 border border-white/20 rounded-xl flex items-center justify-center mb-6 shadow-inner">
+              <User size={24} className="text-white" />
             </div>
-            <a 
-              href="/Resume.pdf" 
-              download="Shaik_Firdos_Resume.pdf"
-              className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
-            >
-              Download Full Resume <Download size={20} />
-            </a>
+            <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">System Architect & AI Engineer</h3>
+            <p className="text-[#a1a1aa] leading-relaxed font-light text-base">
+              I am a Python Full-Stack Developer specializing in scalable REST APIs, microservices architectures, and advanced AI pipelines (LangChain, RAG, LLM integrations).
+            </p>
+          </div>
+          <div className="flex items-center gap-3 mt-6 relative z-10">
+            <span className="px-3 py-1 bg-white/5 border border-white/20 rounded-md text-xs font-medium text-white">Python</span>
+            <span className="px-3 py-1 bg-white/5 border border-white/20 rounded-md text-xs font-medium text-white">React</span>
+            <span className="px-3 py-1 bg-white/5 border border-white/20 rounded-md text-xs font-medium text-white">AWS</span>
           </div>
         </motion.div>
 
-        <div className="space-y-6">
-          <GlassCard className="!bg-primary/5 border-primary/20">
-            <div className="flex gap-4">
-              <div className="w-12 h-12 glass flex items-center justify-center rounded-xl shrink-0">
-                <Briefcase className="text-primary" />
-              </div>
-              <div>
-                <h4 className="text-xl font-bold">AI-Native Full-Stack Engineer</h4>
-                <p className="text-text-muted">RAG & Scalable Systems</p>
-                <p className="text-primary text-sm font-semibold mt-2">Present</p>
-              </div>
-            </div>
-          </GlassCard>
 
 
-          <GlassCard>
-            <div className="flex gap-4">
-              <div className="w-12 h-12 glass flex items-center justify-center rounded-xl shrink-0">
-                <GraduationCap className="text-secondary" />
-              </div>
-              <div>
-                <h4 className="text-xl font-bold">Bachelor of Technology</h4>
-                <p className="text-text-muted">Computer Science Engineering</p>
-                <p className="text-secondary text-sm font-semibold mt-2">Specialized in AI & ML</p>
-              </div>
-            </div>
-          </GlassCard>
 
-          <div className="p-8 glass rounded-2xl border-white/5 relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full" />
-             <h4 className="text-3xl font-black mb-2 text-gradient">25%</h4>
-             <p className="text-white font-bold mb-1 uppercase tracking-wider text-xs">Security Improvement</p>
-             <p className="text-text-muted text-sm">Reduction in unauthorized API attempts through advanced JWT blacklisting.</p>
+
+        {/* Education - 2 cols, 1 row */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="p-6 md:col-span-2 flex flex-col md:flex-row items-start md:items-center gap-6 group bg-transparent border border-white/20 rounded-3xl"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/20 flex items-center justify-center shrink-0">
+            <GraduationCap className="text-white" size={28} />
           </div>
-        </div>
+          <div>
+            <h4 className="text-xl font-bold text-white tracking-tight">B.Tech — CSE</h4>
+            <p className="text-[#a1a1aa] text-sm mt-1 font-light">Sree Venkateswara College of Engineering (2022-2025)</p>
+            <div className="inline-block mt-3 text-xs font-medium text-[#3b82f6] bg-[#3b82f6]/10 px-2 py-1 rounded-md">CGPA: 7.9/10</div>
+          </div>
+        </motion.div>
+
+        {/* Intermediate Education - 2 cols, 1 row */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="p-6 md:col-span-2 flex flex-col md:flex-row items-start md:items-center gap-6 group bg-transparent border border-white/20 rounded-3xl"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/20 flex items-center justify-center shrink-0">
+            <BookOpen className="text-white" size={28} />
+          </div>
+          <div>
+            <h4 className="text-xl font-bold text-white tracking-tight">Intermediate</h4>
+            <p className="text-[#a1a1aa] text-sm mt-1 font-light">Narayana Junior College (2019-2021)</p>
+            <div className="inline-block mt-3 text-xs font-medium text-white bg-[#27272a] px-2 py-1 rounded-md">CGPA: 8.8/10</div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

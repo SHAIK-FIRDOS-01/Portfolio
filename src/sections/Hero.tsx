@@ -1,67 +1,91 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Download } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
+import TerminalContent from '../components/TerminalContent';
+import Typewriter from '../components/Typewriter';
+import useMagnetic from '../hooks/useMagnetic';
 
 const Hero: React.FC = () => {
+  const btn1Ref = useRef<HTMLAnchorElement>(null);
+  const btn2Ref = useRef<HTMLAnchorElement>(null);
+  
+  useMagnetic(btn1Ref);
+  useMagnetic(btn2Ref);
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[128px] animate-pulse-slow" />
+    <section className="relative min-h-[100dvh] w-full flex flex-col md:flex-row pt-24 md:pt-0 overflow-x-hidden bg-transparent">
+      
+      {/* Left side text content */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center my-auto px-6 md:px-16 lg:px-24 z-10 py-10 md:py-0">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#27272a] bg-[#0a0a0a] text-[#a1a1aa] text-xs font-medium tracking-wide mb-8 hover:border-[#3b82f6]/50 transition-colors cursor-default">
+            <span className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse"></span>
+            System Architect & Full-Stack Developer
+          </div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 text-center max-w-5xl"
-      >
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 text-sm font-medium text-primary shadow-xl">
-          <Sparkles size={16} />
-          <span>AI-Native Full-Stack Engineer</span>
-        </div>
+          <h1 className="text-5xl md:text-7xl lg:text-[5rem] font-bold tracking-tight mb-6 leading-[1.1] text-white drop-shadow-xl min-h-[160px] md:min-h-[220px]">
+            Engineering
+            <br />
+            <Typewriter 
+              words={["Digital Experiences", "Scalable Systems", "AI Pipelines", "Neural Networks"]}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#71717a]"
+              typingSpeed={50}
+              deletingSpeed={30}
+              delayBeforeDelete={1500}
+            />
+            <br />
+            That Scale.
+          </h1>
 
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[1.1]">
-          Architecting the <br />
-          <span className="text-gradient">Future of AI.</span>
-        </h1>
+          <p className="text-[#a1a1aa] text-base md:text-lg max-w-lg mb-10 leading-relaxed font-light">
+            I am <span className="text-white font-medium">Shaik Firdos</span>. 
+            I architect high-performance web applications and AI data pipelines that drive business growth. Specialized in distributed systems and LLM integrations.
+          </p>
 
-        <p className="text-xl text-text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
-          Hi, I'm <span className="text-white font-semibold">Shaik Firdos</span>. 
-          Specialized in RAG Orchestration, Enterprise Security, and building 
-          high-performance production systems that bridge the gap between research and product.
-        </p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <motion.a 
+              ref={btn1Ref}
+              href="#projects" 
+              className="spatial-btn group focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#030303] relative z-20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              See The Impact
+              <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+            <motion.a 
+              ref={btn2Ref}
+              href="/SHAIK_FIRDOS.pdf" 
+              download="Shaik_Firdos_Resume.pdf"
+              className="spatial-btn-secondary group focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:ring-offset-2 focus:ring-offset-[#030303] relative z-20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Download size={18} className="mr-2 group-hover:-translate-y-1 transition-transform" />
+              Download Resume
+            </motion.a>
+          </div>
+        </motion.div>
+      </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="px-8 py-4 bg-primary text-white rounded-2xl font-bold flex items-center gap-2 hover:scale-105 transition-transform shadow-lg shadow-primary/25 group">
-            View Projects
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </button>
-          <a 
-            href="/Resume.pdf" 
-            download="Shaik_Firdos_Resume.pdf"
-            className="px-8 py-4 glass text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-white/10 transition-all border border-white/10"
-          >
-            <Download size={20} />
-            Download Resume
-          </a>
-        </div>
-      </motion.div>
+      {/* Right side Visual Area - Terminal */}
+      <div className="w-full md:w-1/2 min-h-[50vh] md:h-screen relative flex items-center justify-center p-6 z-10 my-auto">
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#030303]/10 to-[#030303] z-0 pointer-events-none" />
+        
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="relative z-10"
+        >
+           <TerminalContent />
+        </motion.div>
+      </div>
 
-      {/* Floating Elements */}
-      <motion.div
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 left-10 md:left-40 w-12 h-12 glass flex items-center justify-center rounded-xl border-white/10 rotate-12"
-      >
-        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, 20, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/3 right-10 md:right-40 w-16 h-16 glass flex items-center justify-center rounded-2xl border-white/10 -rotate-12"
-      >
-        <div className="w-4 h-4 rounded bg-secondary animate-bounce" />
-      </motion.div>
     </section>
   );
 };
