@@ -19,14 +19,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     const formData = new FormData(e.currentTarget);
     
     try {
-      formData.append('access_key', import.meta.env.VITE_WEB3FORMS_KEY || '');
-      
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/send', {
         method: 'POST',
-        body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: formData.get('email'),
+          subject: formData.get('subject'),
+          message: formData.get('message')
+        })
       });
       
       const json = await response.json();
