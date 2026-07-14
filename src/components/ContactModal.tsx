@@ -110,10 +110,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             {/* Hidden field for Formspree/Web3Forms subject if needed */}
             <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission!" />
 
-            <div className="flex items-center border-b border-[#27272a] px-4 py-2">
-              <span className="text-[#71717a] text-sm w-12">To</span>
-              <span className="text-white text-sm bg-[#27272a] px-2 py-0.5 rounded-md">shaikfirdos340@gmail.com</span>
-            </div>
+
 
             <div className="flex items-center border-b border-[#27272a] px-4 py-2">
               <span className="text-[#71717a] text-sm w-12">From</span>
